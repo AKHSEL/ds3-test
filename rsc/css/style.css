@@ -101,7 +101,7 @@ nav ul li a:hover { background: rgba(255,255,255,0.12); }
 /* ── BRANDS SIDEBAR ── */
 .brands-sidebar {
   width: 220px;
-  position: sticky;
+  position: static;
   top: 20px;
   align-self: start;
   background: #fff;
@@ -453,7 +453,7 @@ nav ul li a:hover { background: rgba(255,255,255,0.12); }
 
 /* ── LISTAS DE PRECIOS ── */
 .price-lists {
-  position: sticky;
+  position: static;
   top: 20px;
   align-self: start;
   background: #fff;
