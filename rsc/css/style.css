@@ -1,4 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
 body { font-family: 'Segoe UI', Arial, sans-serif; color: #222; background: #fff; }
 a { text-decoration: none; color: inherit; }
 
@@ -56,6 +57,15 @@ a { text-decoration: none; color: inherit; }
 
 /* ── NAVIGATION ── */
 nav { background: #1b3969; }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 12px 20px;
+  cursor: pointer;
+}
 nav ul { list-style: none; display: flex; justify-content: center; }
 nav ul li a {
   display: block;
@@ -314,11 +324,13 @@ nav ul li a:hover { background: rgba(255,255,255,0.12); }
 /* ── TAMBIÉN DISPONIBLE ── */
 .also-avail {
   grid-column: 1 / -1;
+  min-width: 0;
   margin-top: 40px;
   padding: 28px 0 10px;
   border-top: 2px solid #e8edf4;
   text-align: center;
 }
+.also-avail__carousel { min-width: 0; max-width: 100%; }
 .also-avail__title {
   font-size: 13px;
   font-weight: 700;
@@ -620,16 +632,15 @@ footer {
   .logo img { height: 52px; }
   .search-bar { flex: 1; }
 
-  /* Nav: scroll horizontal en lugar de wrap */
+  /* Nav: menú hamburguesa */
+  .nav-toggle { display: block; }
   nav ul {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: none;
+    flex-direction: column;
   }
-  nav ul::-webkit-scrollbar { display: none; }
-  nav ul li a { padding: 12px 16px; font-size: 13px; white-space: nowrap; }
+  nav.nav-open ul { display: flex; }
+  nav ul li { border-top: 1px solid rgba(255,255,255,0.1); }
+  nav ul li a { display: block; padding: 13px 20px; font-size: 14px; }
 
   .breadcrumb { padding: 8px 16px; font-size: 12px; }
 }
@@ -676,6 +687,7 @@ footer {
 
   .also-avail { padding: 20px 0 8px; }
   .also-avail__carousel { gap: 4px; }
+  .also-avail__track { justify-content: flex-start; }
   .carousel-btn { width: 28px; height: 28px; font-size: 16px; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 20px; }

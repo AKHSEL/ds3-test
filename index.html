@@ -31,6 +31,9 @@
 
   <!-- NAVIGATION -->
   <nav>
+    <button class="nav-toggle" aria-label="Menú" aria-expanded="false" onclick="toggleMenu(this)">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <ul>
       <li><a href="#">Switch Catalyst</a></li>
       <li><a href="#">Cisco Business</a></li>
@@ -321,6 +324,11 @@
     }
     function carouselScroll(dir) {
       document.querySelector('.also-avail__track').scrollBy({ left: dir * 184, behavior: 'smooth' });
+    }
+    function toggleMenu(btn) {
+      const nav = btn.closest('nav');
+      const open = nav.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open);
     }
   </script>
 
